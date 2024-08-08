@@ -1,0 +1,137 @@
+.current-openings-container {
+  width: 100%;
+  margin-top: 110px;
+  color: black;
+  /* height: 100vh; */
+  h1 {
+    padding-top: 20px;
+    font-size: 34px;
+    text-align: center;
+  }
+  .current-openings-container-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    gap: 50px;
+    padding: 0 50px;
+    .current-openings-cards {
+      width: 350px;
+      height: 260px;
+      box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.51);
+      padding: 30px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      .current-openings-cards-item-name {
+        font-size: 30px;
+        line-height: 45px;
+      }
+      .current-openings-cards-item-vacancies {
+        font-size: 14px;
+      }
+      button {
+        color: white;
+        background-color: #4b8e3f;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 50px;
+        border: 2px solid #4b8e3f;
+
+        transition: all 0.1s ease-in;
+      }
+      button:hover {
+        color: rgb(0, 0, 0);
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  .current-openings-form {
+    position: relative;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    height: max-content;
+    position: relative;
+    background: url(/assets/bg-wave2.svg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: right 100px center;
+    /* h1 {
+      position: absolute;
+      top: 55px;
+      right: 0;
+      left: 0;
+    } */
+    .current-openings-form-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      padding: 50px 200px;
+
+      input {
+        width: 400px;
+        height: 45px;
+        padding-left: 13px;
+        border-radius: 3px;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid rgb(169, 169, 169);
+        outline: none;
+      }
+      select {
+        width: 400px;
+        height: 45px;
+        outline: none;
+        padding-left: 13px;
+        border-radius: 3px;
+        font-size: 14px;
+        border: 1px solid rgb(169, 169, 169);
+      }
+      .form-container-select-box {
+        width: 400px;
+        height: 45px;
+      }
+    }
+    button {
+      margin-top: 15px;
+      color: white;
+      background-color: #4b8e3f;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 50px;
+      border: 2px solid #4b8e3f;
+      transition: all 0.1s ease-in;
+    }
+    button:hover {
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+    }
+    .upload-field {
+      position: relative;
+      bottom: 20px;
+      width: 400px;
+      height: 45px;
+      background-color: white;
+      color: black;
+      border-radius: 0;
+      border: 1px solid rgb(169, 169, 169);
+    }
+    .upload-field:hover {
+      color: black;
+      border: 1px solid rgb(169, 169, 169);
+      box-shadow: none;
+    }
+    .ant-btn-icon-only {
+      background-color: rgb(255, 255, 255);
+      height: 30px !important;
+    }
+  }
+}

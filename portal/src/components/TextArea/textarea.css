@@ -1,0 +1,19 @@
+.custom-textarea {
+  width: 100%;
+  height: 108px;
+  border: 1px solid rgb(100 116 139);
+  margin: 8px 0;
+  padding: 13px 18px;
+  color: rgb(100 116 139) !important;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.dark .custom-textarea {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 36 52);
+}
+
+.custom-textarea:focus-visible {
+  outline: rgb(100 116 139) solid 1px !important;
+}

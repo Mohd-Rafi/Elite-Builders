@@ -1,0 +1,112 @@
+.green-container .slick-prev {
+  left: -5%;
+}
+
+.green-container .slick-next {
+  right: -5%;
+}
+
+.green-container .slick-prev:before,
+.green-container .slick-next:before {
+  content: '';
+  border: solid #4b8e3f;
+  border-width: 0 3px 3px 0;
+  opacity: 1;
+  display: inline-block;
+  padding: 5px;
+}
+.green-container .slick-prev:before {
+  margin-left: 5px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.green-container .slick-next:before {
+  margin-right: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.green-container .slick-prev,
+.green-container .slick-next {
+  background-color: #0f100e;
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.green-container .video {
+  text-align: center;
+  width: 90%;
+  margin-bottom: 20px;
+}
+.green-container .video iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+}
+.cc-loader-review {
+  width: 90%;
+  height: 40vh;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-review-card {
+  .text {
+    margin: 0 auto;
+    width: 90%;
+    text-align: justify;
+  }
+}
+/* @media screen and (max-width: 520px) {
+  .green-container .video {
+    width: 120%;
+    max-width: 560px;
+    height: 315px;
+    position: relative;
+    right: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .green-container .video {
+    right: 35px;
+  }
+}
+@media screen and (max-width: 433px) {
+  .green-container .video {
+    right: 30px;
+  }
+} */
+@media screen and (max-width: 768px) {
+  .green-container .slick-next {
+    right: 30% !important;
+    top: 106% !important;
+  }
+  .green-container .slick-prev {
+    left: 30% !important;
+    top: 106% !important;
+  }
+}
+
+@media screen and (max-width: 230px) {
+  .green-container .slick-next,
+  .green-container .slick-prev {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .slick-track {
+    white-space: pre-wrap !important;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+}

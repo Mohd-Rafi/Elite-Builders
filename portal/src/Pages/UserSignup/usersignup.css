@@ -1,0 +1,12 @@
+.user .signup {
+  height: 620px;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  width: auto;
+}
+
+.signup .paragraph .text-secondary:hover {
+  color: rgb(37 99 235) !important;
+  cursor: pointer;
+}

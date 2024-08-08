@@ -1,0 +1,107 @@
+.contact-section {
+  background-color: #77c15f; /* Adjust to match the design background color */
+  padding: 50px 0;
+}
+.form-card {
+  background-color: white;
+  border-radius: 30px;
+  padding: 50px;
+  width: 100%;
+  max-width: 600px;
+}
+.text-italic {
+  font-style: italic;
+  color: white;
+  font-size: 44px;
+  text-align: center;
+}
+
+.card-titles {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+  border-radius: 30px;
+  border: 1px solid #77c15f;
+  padding: 10px 15px;
+}
+.form-group {
+  margin-bottom: 15px; /* Adds space between the input fields */
+}
+.btn-primary {
+  background-color: #77c15f;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+.text-italic {
+  font-style: italic;
+  color: white;
+  font-size: 44px;
+  text-align: center;
+}
+.captcha-circles {
+  height: 38px;
+  width: 55px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #528a40;
+  margin-right: 10px;
+  color: white;
+}
+
+@media (max-width: 1080px) {
+  .captcha-circles {
+    height: 35px;
+    padding: 5px;
+    width: 55px;
+    border-radius: 100%;
+    background-color: #528a40;
+    margin-right: 10px;
+    color: white;
+  }
+}
+@media (max-width: 950px) {
+  .captcha-circles {
+    height: 35px;
+    padding: 10px;
+    width: 55px;
+    border-radius: 100%;
+    background-color: #528a40;
+    margin-right: 10px;
+    color: white;
+  }
+}
+@media screen and(max-width: 768px) {
+  .captcha-circles {
+    height: 40px;
+    width: 55px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: #528a40;
+    margin-right: 10px;
+    color: white;
+  }
+}
+@media screen and(max-width: 552) {
+  .captcha-circles {
+    height: 40px;
+    padding: 15px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: #528a40;
+    margin-right: 10px;
+    color: white;
+  }
+}
+.refresh-btn {
+  width: 35px;
+  height: 35px;
+  rotate: 28deg;
+}

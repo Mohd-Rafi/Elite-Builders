@@ -1,0 +1,211 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 93px;
+  padding: 20px;
+  color: white;
+  position: fixed; /*navbar sticky*/
+  top: 0;
+  z-index: 1049 !important;
+  background-color: rgba(0, 0, 0, 0.875);
+}
+
+.header-bg {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.no-header {
+  position: absolute; /*navbar sticky*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 93px;
+  padding: 20px;
+  color: white;
+  top: 0;
+  z-index: 21100;
+}
+
+.logo-default {
+  height: 110px;
+  margin-top: 15px;
+}
+
+.logo-normal {
+  margin-top: 5px;
+}
+.break {
+  color: white;
+}
+.modal-contents {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  color: var(--bs-modal-color);
+  pointer-events: auto;
+  background-color: var(--bs-modal-bg);
+  background-clip: padding-box;
+  border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+  border-radius: var(--bs-modal-border-radius);
+  outline: 0;
+  padding: 2%;
+  margin: 25px 50px 0px;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: -495px;
+  width: 495px;
+  height: 100vh;
+  z-index: 21100;
+  border-top-right-radius: 30px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.718) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+}
+
+.sub-menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 247 0.5px;
+  height: 100%;
+  background-color: #4b8e3f !important;
+  z-index: 1001;
+  border-top-right-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out; /* Ensure same transition speed */
+}
+
+.sub-menu.active {
+  right: 0;
+  color: white !important;
+}
+
+.sub-menu .menu-link {
+  font-size: 18px;
+  margin-left: 0;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+  color: #ffffff !important;
+}
+
+.sub-menu .menu-link:hover {
+  margin-left: 3px;
+  transition: 0.2s ease;
+}
+
+.sub-menu .sub-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sub-menu .close-submenu {
+  font-size: 20px;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: margin-left 0.5s ease;
+  text-transform: uppercase;
+}
+
+.sub-menu .close-submenu:hover {
+  margin-left: 10px;
+}
+/* .enqui-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border-radius: 35px;
+  color: white;
+  background-color: #4caf50 !important;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+.enqui-btn:hover {
+  background-color: #ffffff !important;
+  color: black;
+  transition: all 500ms;
+} */
+.icon-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4b8e3f;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border: 2px solid #4b8e3f;
+  transition: all 100ms;
+}
+.icon-links:hover {
+  background-color: #ffffff;
+  color: black;
+}
+.fixed-icons-cont {
+  position: fixed;
+  right: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+.enquire-frm-btn {
+  user-select: none;
+  rotate: 270deg;
+  width: max-content;
+  margin-top: 50px;
+  border-radius: 35px;
+  background-color: #4b8e3f;
+  padding: 10px 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 2px solid #4b8e3f;
+  transition: all 100ms;
+}
+.enquire-frm-btn:hover {
+  background-color: #ffffff;
+  color: black;
+}
+@media (max-width: 768px) {
+  .fixed-icons-cont {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .logo-default {
+    height: 110px;
+    transform: scale(0.9);
+    margin-top: -10px;
+  }
+  .modal-contents {
+    margin: 2px 0px 0px;
+  }
+}
+
+.modal-test-enquiry {
+  margin: 0 auto !important;
+}

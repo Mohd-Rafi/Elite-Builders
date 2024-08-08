@@ -1,0 +1,110 @@
+/* Container for the image section */
+.image-section {
+  position: relative;
+  /* Position relative for absolute positioning */
+  height: 100vh;
+  /* Set height for the section */
+  overflow: hidden;
+  /* Hide overflowing content */
+}
+
+/* The image that acts as a background */
+.image-section img {
+  width: 100%;
+  /* Ensure image covers the section horizontally */
+  height: 100%;
+  /* Ensure image covers the section vertically */
+  object-fit: cover;
+  /* Cover the section with the image */
+  object-position: center;
+  /* Center the image */
+  filter: brightness(0.5);
+  /* Decrease brightness (less than 1) */
+}
+
+/* Header positioned over the image */
+.header-overlay {
+  position: absolute;
+  /* Position absolutely over the image */
+  top: 50%;
+  /* Align to the top of the section */
+  left: 0;
+  /* Align to the left of the section */
+  width: 100%;
+  /* Full width of the section */
+  height: 93px;
+  /* Set height for the header */
+  display: flex;
+  /* Use Flexbox for alignment */
+  justify-content: center;
+  /* Center the content horizontally */
+  align-items: center;
+  /* Center the content vertically */
+  z-index: 2;
+  /* Ensure header is above the image */
+
+  color: white;
+  /* White text color */
+}
+
+/* Heading within the header overlay */
+.header-overlay h1 {
+  font-size: 34px;
+  /* Font size for the heading */
+  /* Uppercase text */
+  text-align: center;
+  /* Center the text */
+  color: #fff;
+}
+.site-map-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc; /* Add bottom border */
+}
+.site-map-section h4 {
+  margin: 50px 0px;
+  font-weight: 600;
+  text-align: left;
+}
+.site-map-section h5 {
+  text-align: left;
+}
+.site-map-section a {
+  display: block;
+  color: #000;
+  cursor: pointer;
+  text-align: left;
+  margin: 10px 0;
+  text-decoration: none;
+}
+.site-map-section a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.text-align-correct {
+  margin-left: 0;
+  h5 {
+    margin-bottom: 30px;
+  }
+}
+.sitemap-container-main {
+  h4 {
+    font-size: 34px;
+  }
+  h5 {
+    font-size: 25px;
+  }
+  a {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sitemap-container-main {
+    h4 {
+      font-size: 30px;
+    }
+    h5 {
+      font-size: 22px;
+    }
+  }
+}

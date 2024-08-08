@@ -1,0 +1,21 @@
+.navbar-switch {
+  color: rgb(222 228 238);
+  font-weight: 500;
+  border-radius: 0.125rem;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.navbar-switch-bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 58 72);
+  border-radius: 0.125rem;
+  /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms; */
+}
+.nav-menu-a li {
+  transition: all 200ms;
+}
+.nav-menu-a li:hover {
+  scale: 1.03;
+}
