@@ -332,9 +332,11 @@ const MediaCenter = () => {
           <div className="container mt-5">
             <Carousel
               responsive={responsive}
-              autoPlay={false}
-              swipeable={false}
-              draggable={false}
+              autoPlay={true}
+              autoPlaySpeed={3000}
+              pauseOnHover={false}
+              swipeable={true}
+              draggable={true}
               infinite={true}
               afterChange={false}
               // partialVisible={false}

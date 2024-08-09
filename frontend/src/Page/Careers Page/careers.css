@@ -26,6 +26,7 @@
       align-items: center;
       justify-content: space-between;
       text-align: center;
+      border-radius: 8px;
       .current-openings-cards-item-name {
         font-size: 30px;
         line-height: 45px;
@@ -86,6 +87,7 @@
         border: 1px solid rgb(169, 169, 169);
         outline: none;
       }
+
       select {
         width: 400px;
         height: 45px;
@@ -133,5 +135,26 @@
       background-color: rgb(255, 255, 255);
       height: 30px !important;
     }
+  }
+}
+@media screen and (max-width: 500px) {
+  .current-openings-form {
+    .current-openings-form-container {
+      padding: 0px 350px !important;
+      margin-top: 30px;
+      input {
+        width: 230px !important;
+      }
+    }
+    select {
+      width: 230px !important;
+    }
+    .upload-field {
+      margin-top: 80px !important;
+      width: 230px !important;
+    }
+  }
+  .current-openings-cards {
+    padding: 30px 10px !important;
   }
 }

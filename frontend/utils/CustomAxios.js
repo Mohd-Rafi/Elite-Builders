@@ -3,7 +3,7 @@ import axios from 'axios';
 // baseURL: 'https://backend.testing4.xyz',
 
 const customAxios = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://backend.testing4.xyz',
   timeout: 9000,
 });
 

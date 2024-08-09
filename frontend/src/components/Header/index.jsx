@@ -444,6 +444,11 @@ const Header = () => {
               </a>
             </li>
             <li>
+              <a href="/careers" className="menu-link lead">
+                CAREERS
+              </a>
+            </li>
+            <li>
               <a href="/contact" className="menu-link lead">
                 Contact Us
               </a>

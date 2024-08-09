@@ -188,7 +188,7 @@ const SitePlanGalleryCreate = ({
             </div>
             <label>Site Plan Images</label>
             <Upload
-              action="http://localhost:3000/upload/image"
+              action="https://backend.testing4.xyz/upload/image"
               listType="picture-card"
               fileList={sitePlanFileList}
               onChange={handleSitePlanGalleryChange}

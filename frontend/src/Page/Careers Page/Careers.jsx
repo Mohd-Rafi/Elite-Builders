@@ -227,7 +227,7 @@ const Careers = () => {
           </div>
           <Upload
             name="file"
-            action="http://localhost:3000/upload/image"
+            action="https://backend.testing4.xyz/upload/image"
             onChange={onUpload}
           >
             <Button icon={<UploadOutlined />} className="upload-field">
