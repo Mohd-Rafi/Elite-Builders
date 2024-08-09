@@ -14,6 +14,7 @@ import userReviewSchema from './userReview/index.js';
 import EnquirySchema from './enquiry/index.js';
 import popupSchema from './Popup/index.js';
 import careerSchema from './Career/index.js';
+import careerApplicationSchema from './CareerApplications/index.js';
 
 const router = express.Router();
 
@@ -32,5 +33,6 @@ router.use('/userreview', userReviewSchema);
 router.use('/enquiry', EnquirySchema);
 router.use('/popup', popupSchema);
 router.use('/career', careerSchema);
+router.use('/career-application', careerApplicationSchema);
 
 export default router;

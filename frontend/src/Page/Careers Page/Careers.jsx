@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react';
 import customAxios from '../../../utils/CustomAxios';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload } from 'antd';
+import { Helmet } from 'react-helmet';
+import ReactGA from 'react-ga4';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './careers.css';
 
 const Careers = () => {
@@ -21,7 +26,7 @@ const Careers = () => {
   const [data, setData] = useState({
     name: '',
     email: '',
-    mobbileno: '',
+    mobileno: '',
     qualifications: '',
     role: '',
     experience: '',
@@ -34,28 +39,118 @@ const Careers = () => {
 
   const onUpload = e => {
     if (e.file && e.file.response) {
-      console.log(e.file.response.url);
+      setData({ ...data, resume: e.file.response.url });
     }
   };
 
-  const onClick = () => {
-    setData({
-      name: '',
-      email: '',
-      mobbileno: '',
-      qualifications: '',
-      role: '',
-      experience: '',
-      resume: '',
-    });
+  const postApplication = async () => {
+    try {
+      const response = await customAxios.post('/career-application', data);
+      if (response && response.data) {
+        toast.success('Application Submitted', {
+          position: 'top-center',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      }
+    } catch (e) {
+      toast.error('Somethings wrong..try again', {
+        position: 'top-center',
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
   };
+
+  const onClick = e => {
+    e.preventDefault();
+    if (
+      data.name.length < 3 ||
+      data.email.length < 3 ||
+      data.mobileno.length < 3 ||
+      data.experience.length < 3 ||
+      data.qualifications.length < 1 ||
+      data.resume.length < 3 ||
+      data.role.length < 3
+    ) {
+      toast.warn('Enter all fields correctly', {
+        position: 'top-center',
+        autoClose: 800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+    } else {
+      postApplication();
+      setTimeout(
+        setData({
+          name: '',
+          email: '',
+          mobileno: '',
+          qualifications: '',
+          role: '',
+          experience: '',
+          resume: '',
+        }),
+        1000
+      );
+    }
+  };
+
+  ReactGA.send({
+    hitType: 'pageview',
+    page: window.location.pathname,
+    title: 'Career Page',
+  });
   useEffect(() => {
     getCareerApi();
   }, []);
-  // console.log(data);
+  console.log(data);
   return (
     <>
+      <ToastContainer style={{ marginTop: '100px' }} />
+      <Helmet>
+        <title>
+          Real Estate Jobs in Kerala | Elite Developers | Thrissur & Trivandrum
+        </title>
+        <meta
+          name="description"
+          content="Would you like to begin your career at Elite Developers? We are open up for applications from experienced professionals. Apply now!"
+        />
+        <meta
+          property="og:title"
+          content="Real Estate Jobs in Kerala | Elite Developers | Thrissur &Trivandrum"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:description"
+          content="Would you like to begin your career at Elite Developers? We are open up for applications from experienced professionals. Apply now!"
+        />
+      </Helmet>
       <Header />
+      <div className="image-section">
+        <img
+          src="/assets/DALL·E 2024-04-27 18.36.00 - A construction site with builders working on various tasks. In the foreground, a builder with a yellow hard hat is operating a crane to lift large ste.webp"
+          alt="Background Image"
+        />
+
+        <div className="header-overlay">
+          <h1 className="font">Career Page</h1>
+        </div>
+      </div>
       <div className="current-openings-container">
         <h1>CURRENT OPENINGS</h1>
         <div className="current-openings-container-body">
@@ -69,7 +164,7 @@ const Careers = () => {
             </div>
           ))}
         </div>
-        <div className="current-openings-form">
+        <form className="current-openings-form" onSubmit={onClick}>
           <h1>APPLY NOW</h1>
           <div className="current-openings-form-container">
             <div className="form-container-fields">
@@ -123,10 +218,11 @@ const Careers = () => {
                 <option disabled value="">
                   Select a role
                 </option>
-                <option value="Civil">Civil</option>
-                <option value="Sales and marketing">Sales and marketing</option>
-                <option value="Finance">Finance</option>
-                <option value="Admin & Liaisoning">Admin & Liaisoning</option>
+                {career.map((item, i) => (
+                  <option value={item.role} key={i}>
+                    {item.role}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -141,8 +237,8 @@ const Careers = () => {
               Upload Resume
             </Button>
           </Upload>
-          <button onClick={onClick}>SUBMIT</button>
-        </div>
+          <button>SUBMIT</button>
+        </form>
       </div>
       <Footer />
     </>
