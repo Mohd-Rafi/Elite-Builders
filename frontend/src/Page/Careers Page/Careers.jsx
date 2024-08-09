@@ -95,18 +95,15 @@ const Careers = () => {
       });
     } else {
       postApplication();
-      setTimeout(
-        setData({
-          name: '',
-          email: '',
-          mobileno: '',
-          qualifications: '',
-          role: '',
-          experience: '',
-          resume: '',
-        }),
-        1000
-      );
+      setData({
+        name: '',
+        email: '',
+        mobileno: '',
+        qualifications: '',
+        role: '',
+        experience: '',
+        resume: '',
+      });
     }
   };
 

@@ -7,6 +7,7 @@ const NavBar = ({ sidebarOpen, setSidebarOpen = () => {} }) => {
   const [sliderExpandButton, setSliderExpandButton] = useState(false);
   const [locationExpandButton, setLocationExpandButton] = useState(false);
   const [cardExpandButton, setCardExpandButton] = useState(false);
+  const [careerExpandButton, setcareerExpandButton] = useState(false);
 
   const toogleFn = key => {
     if (key === 'slider') {
@@ -15,6 +16,8 @@ const NavBar = ({ sidebarOpen, setSidebarOpen = () => {} }) => {
       setLocationExpandButton(!locationExpandButton);
     } else if (key === 'card') {
       setCardExpandButton(!cardExpandButton);
+    } else if (key === 'career') {
+      setcareerExpandButton(!careerExpandButton);
     }
   };
   return (
@@ -127,7 +130,7 @@ const NavBar = ({ sidebarOpen, setSidebarOpen = () => {} }) => {
                   Add Popup
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to={'careers'}
                   className="navbar-switch py-2 px-4 flex items-center relative"
@@ -135,7 +138,58 @@ const NavBar = ({ sidebarOpen, setSidebarOpen = () => {} }) => {
                   <i class="fa-regular fa-envelope mr-2"></i>
                   Careers
                 </NavLink>
+              </li> */}
+
+              <li
+                onClick={() => {
+                  toogleFn('career');
+                }}
+              >
+                <div
+                  className={`navbar-switch py-2 px-4 flex items-center relative cursor-pointer ${
+                    careerExpandButton && 'navbar-switch-bg'
+                  }`}
+                >
+                  <i class="fa-solid fa-book-open-reader mr-2"></i>
+                  Career Section
+                  <i
+                    className={`fa-solid fa-angle-down absolute right-0 mr-4 ${
+                      careerExpandButton ? 'hidden' : 'block'
+                    }`}
+                  ></i>
+                  <i
+                    className={`fa-solid fa-angle-up absolute right-0 mr-4 ${
+                      careerExpandButton ? 'block' : 'hidden'
+                    }`}
+                  ></i>
+                </div>
               </li>
+              <div
+                className={`translate transform overflow-hidden ${
+                  careerExpandButton ? 'block' : 'hidden'
+                }`}
+              >
+                <ul className="mt-4 mb-5 flex flex-col gap-2 pl-6">
+                  <li>
+                    <NavLink
+                      to={'careers'}
+                      className="navbar-switch py-2 px-4 flex items-center relative"
+                    >
+                      <i class="fa-regular fa-envelope mr-2"></i>
+                      Careers
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to={'careers-application'}
+                      className="navbar-switch py-2 px-4 flex items-center relative"
+                    >
+                      <i class="fa-regular fa-clipboard mr-2"></i>
+                      Applications
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
               <li
                 onClick={() => {
                   toogleFn('slider');

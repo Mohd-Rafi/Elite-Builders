@@ -19,3 +19,7 @@
 .nav-menu-a li:hover {
   scale: 1.03;
 }
+.fa-xmark:hover {
+  scale: 1.1;
+  transition: all 500ms ease-in;
+}

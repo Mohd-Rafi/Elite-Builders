@@ -22,6 +22,7 @@ import './App.css';
 import Enquiries from './Pages/Enquiries';
 import Popup from './Pages/Popup';
 import Careers from './Pages/Careers';
+import CareersApplication from './Pages/CareersAppications';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -40,6 +41,10 @@ function App() {
             <Route path="enquiry" element={<Enquiries />} />
             <Route path="popup" element={<Popup />} />
             <Route path="careers" element={<Careers />} />
+            <Route
+              path="careers-application"
+              element={<CareersApplication />}
+            />
             <Route path="createbuildercard" element={<BuilderCard />} />
             <Route path="createlogo" element={<Logo />} />
             <Route path="createqr" element={<QRCode />} />
