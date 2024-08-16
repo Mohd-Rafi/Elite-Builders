@@ -81,10 +81,11 @@
         width: 400px;
         height: 45px;
         padding-left: 13px;
+        padding-right: 13px;
         border-radius: 3px;
         font-size: 14px;
-        border-radius: 3px;
-        border: 1px solid rgb(169, 169, 169);
+        border-radius: 30px;
+        border: 2px solid #4b8e3f;
         outline: none;
       }
 
@@ -93,9 +94,9 @@
         height: 45px;
         outline: none;
         padding-left: 13px;
-        border-radius: 3px;
+        border-radius: 30px;
         font-size: 14px;
-        border: 1px solid rgb(169, 169, 169);
+        border: 2px solid #4b8e3f;
       }
       .form-container-select-box {
         width: 400px;
@@ -123,8 +124,8 @@
       height: 45px;
       background-color: white;
       color: black;
-      border-radius: 0;
-      border: 1px solid rgb(169, 169, 169);
+      border-radius: 30px;
+      border: 2px solid #4b8e3f;
     }
     .upload-field:hover {
       color: black;

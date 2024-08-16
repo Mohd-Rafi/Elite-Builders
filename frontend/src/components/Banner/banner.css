@@ -27,6 +27,54 @@
 .fa-map-marker {
   margin-right: 5px;
 }
+.main-slider .main-slider .slick-prev {
+  left: -5%;
+}
+
+.main-slider .slick-next {
+  right: -5%;
+}
+
+.main-slider .slick-prev:before,
+.main-slider .slick-next:before {
+  content: '';
+  border: solid white;
+  border-width: 0 2px 2px 0 !important;
+  opacity: 1;
+  display: inline-block;
+  padding: 5px;
+}
+
+.main-slider .slick-prev:before {
+  margin-left: 5px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.main-slider .slick-next:before {
+  margin-right: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.main-slider .slick-prev,
+.main-slider .slick-next {
+  background-color: #0413017f;
+  border: none;
+  color: white;
+  width: 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+}
+.main-slider .slick-prev {
+  left: 0px;
+}
+.main-slider .slick-next {
+  right: 0px;
+}
 @media screen and (max-width: 768px) {
   .main-banner-image {
     width: 100%;

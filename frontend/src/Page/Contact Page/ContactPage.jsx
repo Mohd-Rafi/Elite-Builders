@@ -51,7 +51,12 @@ const ContactPage = () => {
 
   //----------------------------------------------------
 
-  const [enquiry, setEnquiry] = useState({});
+  const [enquiry, setEnquiry] = useState({
+    name: '',
+    message: '',
+    mobileno: '',
+    email: '',
+  });
 
   const onChangeEnquiry = (e, key) => {
     setEnquiry({ ...enquiry, [key]: e.target.value });
@@ -153,9 +158,19 @@ const ContactPage = () => {
       </div>
 
       <div className="container mt-5">
-        <div className="row">
+        <div className="">
           <div className="col-md-3 pt-5">
-            <div className="button-section" role="group" id="location-buttons">
+            <div
+              className="button-section"
+              style={{
+                width: '85vw',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 10,
+                gap: 20,
+              }}
+            >
               <button
                 type="button"
                 className={`btn btnsys ${
@@ -176,7 +191,7 @@ const ContactPage = () => {
               </button>
             </div>
           </div>
-          <div className="col-md-9 pt-5">
+          <div className="pt-5">
             <div className="card py-5">
               <div className="card-body">
                 <div className="tab-content" id="location-info">
@@ -184,12 +199,11 @@ const ContactPage = () => {
                     <Fade>
                       <div
                         className="tab-pane fade show active"
-                        id="thrissur"
-                        role="tabpanel"
+                        style={{ position: 'relative' }}
                       >
-                        <div className="row">
+                        <div className="row" style={{ color: 'black' }}>
                           <div className="col-md-4 ">
-                            <h5 style={{ color: '#606C38' }}>LOCATION</h5>
+                            <h5>LOCATION</h5>
                             <p>
                               Thrissur – Corporate Office Elite Gardenia Hills,
                               Near Reliance Petrol Pump, Puzhakkal P.O.,
@@ -197,7 +211,7 @@ const ContactPage = () => {
                             </p>
                           </div>
                           <div className="col-md-4">
-                            <h5 style={{ color: '#606C38' }}>CONTACT INFO</h5>
+                            <h5>CONTACT INFO</h5>
                             <p>
                               +91 99468 11111
                               <br />
@@ -205,7 +219,7 @@ const ContactPage = () => {
                             </p>
                           </div>
                           <div className="col-md-4">
-                            <h5 style={{ color: '#606C38' }}>MAIL</h5>
+                            <h5>MAIL</h5>
                             <p>
                               sales@elitehomesindia.co.in
                               <br />
@@ -214,8 +228,11 @@ const ContactPage = () => {
                           </div>
                         </div>
 
-                        <div className="row">
-                          <div className="col-12 text-center ">
+                        <div className="row get-direction-btn">
+                          <div
+                            className="col-12 text-center pt-3"
+                            style={{ margin: '20px 0' }}
+                          >
                             <a
                               href="https://www.google.com/maps/place/Elite+Developers/@10.5484897,76.1746162,15z/data=!4m6!3m5!1s0x3ba7ee573da096f5:0xf4ad0bfcf8cb6bea!8m2!3d10.5484897!4d76.1746162!16s%2Fg%2F1jgl_hngm?entry=ttu"
                               className="btn"
@@ -234,8 +251,7 @@ const ContactPage = () => {
                     <Fade>
                       <div
                         className="tab-pane fade show active"
-                        id="trivandrum"
-                        role="tabpanel"
+                        style={{ position: 'relative' }}
                       >
                         <div className="row">
                           <div className="col-md-4">
@@ -263,15 +279,18 @@ const ContactPage = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="row">
-                          <div className="col-12 text-center pt-3">
+                        <div className="row get-direction-btn">
+                          <div
+                            className="col-12 text-center pt-3"
+                            style={{ margin: '20px 0' }}
+                          >
                             <a
                               href="https://www.google.com/maps/place/Elite+Developers-+Samrudhi+Apartments+in+Trivandrum/@8.5628552,76.8536949,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x3ba7ee573da096f5:0xf4ad0bfcf8cb6bea!2sElite+Developers!8m2!3d10.5484897!4d76.1746162!16s%2Fg%2F1jgl_hngm!3m5!1s0x3b05bfa586b89c7f:0x7e0be0b29cf55497!8m2!3d8.5628552!4d76.8562698!16s%2Fg%2F11j7j5l8zj?entry=ttu"
                               target="_blank"
                               className="btn"
                               style={{ color: '#fff', borderRadius: '25px' }}
                             >
-                              View Location
+                              Get Direction
                             </a>
                           </div>
                         </div>
@@ -286,7 +305,7 @@ const ContactPage = () => {
       </div>
       <div
         className="container contact-form-container mb-5"
-        style={{ marginTop: '90px' }}
+        style={{ marginTop: '140px' }}
       >
         <h2 className="top-heading font">Leave A Message</h2>
         <div className="mt-5">
@@ -334,20 +353,23 @@ const ContactPage = () => {
               rows="3"
             />
           </div>
-          <div className="form-group captcha-container">
-            <button
-              type="button"
-              className="refresh-button"
-              onClick={refreshCaptcha}
-            >
-              <img
-                src="/assets/refresh.png"
-                alt=""
-                className="refresh-btn"
-                style={{ padding: 5 }}
-              />
-            </button>
-            <div className="captcha-code">{captchaCode}</div>
+          {/* <div className="form-group captcha-container">
+            <div className="form-group-items">
+              <button
+                type="button"
+                className="refresh-button"
+                onClick={refreshCaptcha}
+              >
+                <img
+                  src="/assets/refresh.png"
+                  alt=""
+                  className="refresh-btn"
+                  style={{ padding: 5 }}
+                />
+              </button>
+              <div className="captcha-code">{captchaCode}</div>
+            </div>
+
             <input
               type="text"
               className="borderless-inputs"
@@ -360,7 +382,34 @@ const ContactPage = () => {
           </div>
           <button type="submit" className="btn btnsys" onClick={handleSubmit}>
             Submit
-          </button>
+          </button> */}
+          <div
+            className="form-group captcha-wrapper"
+            style={{ justifyContent: 'center' }}
+          >
+            <div className="captcha-circle" onClick={refreshCaptcha}>
+              <img src="/assets/refresh.png" alt="" className="refresh-btn" />
+            </div>
+            <div className="captcha-code" id="captchaCode">
+              {captchaCode}
+            </div>
+            <input
+              type="text"
+              className="borderless-inputs"
+              placeholder="ENTER CAPTCHA"
+              value={captchaInput}
+              onChange={e => setCaptchaInput(e.target.value)}
+            />
+          </div>
+          <div className="text-center mt-3">
+            <button
+              type="submit"
+              className="btn btn-submit"
+              onClick={handleSubmit}
+            >
+              SUBMIT
+            </button>
+          </div>
         </div>
       </div>
       <Footer />

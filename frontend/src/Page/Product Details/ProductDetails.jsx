@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import axios from 'axios';
+import { motion } from 'framer-motion';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 //fancybox
@@ -13,13 +13,12 @@ import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import './productdetails.css';
 import ContactSection from '../../components/Contact Section/ContactSection';
 import Footer from '../../components/Footer/Footer';
-import { Fade, Slide } from 'react-awesome-reveal';
+import { Slide } from 'react-awesome-reveal';
 import BuildingCard from '../../components/BuildingCard/BuildingCard';
 import moment from 'moment';
 import customAxios from '../../../utils/CustomAxios.js';
 import {
   FacebookShareButton,
-  InstapaperShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from 'react-share';
@@ -112,7 +111,6 @@ const ProductDetails = () => {
     shopping: '',
     landmarks: '',
   });
-  const [data, setData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
 
   const fetchDataApiCall = async () => {
@@ -125,15 +123,15 @@ const ProductDetails = () => {
     }
   };
 
-  const fetchAllDataApiCall = async () => {
-    try {
-      const response = await customAxios.get('/buildercard');
-      setData(response.data);
-      // console.log(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  // const fetchAllDataApiCall = async () => {
+  //   try {
+  //     const response = await customAxios.get('/buildercard');
+  //     setData(response.data);
+  //     // console.log(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // };
 
   const handleAccordionClick = index => {
     setActiveIndex(index === activeIndex ? null : index); // Toggle the active index
@@ -336,9 +334,25 @@ const ProductDetails = () => {
     }
   };
 
+  const variant = {
+    initial: {
+      x: -100,
+      scale: 0.7,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+
   useEffect(() => {
     fetchDataApiCall();
-    fetchAllDataApiCall();
+    // fetchAllDataApiCall();
     refreshCaptcha();
   }, [id]);
 
@@ -369,7 +383,6 @@ const ProductDetails = () => {
   }, [state.images, state.statusgallery, state.siteplan.images]);
 
   //set max limit of 10 items for image gallery for mobile screens
-
   const [isResponsive, setIsResponsive] = useState(false);
 
   useEffect(() => {
@@ -385,7 +398,7 @@ const ProductDetails = () => {
   const imagesToShow = isResponsive
     ? state.gallery.images.slice(0, 10)
     : state.gallery.images;
-  console.log(state);
+  // console.log(state);
   return (
     <div>
       <ToastContainer style={{ marginTop: '100px' }} />
@@ -656,10 +669,6 @@ const ProductDetails = () => {
               alt={item}
               effect="blur"
               className="carousel-image main-banner-image"
-              wrapperProps={{
-                // If you need to, you can tweak the effect transition using the wrapper style.
-                style: { transitionDelay: '300ms' },
-              }}
               src={item}
             />
             <div className="carousel-content">
@@ -696,7 +705,10 @@ const ProductDetails = () => {
           <div className="col-md-6 mt-3">
             <div className="d-flex justify-content-between align-items-start">
               <div>
-                <h1
+                <motion.h1
+                  variants={variant}
+                  initial="initial"
+                  whileInView="animate"
                   className="font anim text-h"
                   style={{
                     fontStyle: 'normal',
@@ -705,7 +717,7 @@ const ProductDetails = () => {
                   }}
                 >
                   {state.name}
-                </h1>
+                </motion.h1>
                 <div className="location-rera" style={{ color: '#212529' }}>
                   <div className="mt-3">
                     <i className="fas fa-map-marker-alt"></i>
@@ -739,21 +751,26 @@ const ProductDetails = () => {
                     <i className="fab fa-facebook-f"></i>
                   </li>
                 </FacebookShareButton>
-                <TwitterShareButton url={window.location.href}>
-                  <li>
-                    <i className="fab fa-twitter"></i>
-                  </li>
-                </TwitterShareButton>
                 <WhatsappShareButton url={window.location.href}>
                   <li>
                     <i className="fab fa-whatsapp"></i>
                   </li>
                 </WhatsappShareButton>
+                <TwitterShareButton url={window.location.href}>
+                  <li>
+                    <i className="fab fa-twitter"></i>
+                  </li>
+                </TwitterShareButton>
               </ul>
             </div>
-            <h2 className="mt-5 font texts anim">
+            <motion.h2
+              variants={variant}
+              initial="initial"
+              whileInView="animate"
+              className="mt-5 font texts anim"
+            >
               Premium Luxury Villas at {state.location}
-            </h2>
+            </motion.h2>
             <p className="mt-5 text_para">{state.description}</p>
           </div>
 
@@ -764,9 +781,15 @@ const ProductDetails = () => {
               style={{ backgroundColor: '#ede9e2', borderRadius: '0px' }}
             >
               <div className="card-body">
-                <h3 className="card-titles font mt-5 anima">
+                <motion.h3
+                  variants={variant}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  className="card-titles font mt-5 anima"
+                >
                   Project Overview
-                </h3>
+                </motion.h3>
                 <div className="ico-logo">
                   <img
                     src={state.logo && state.logo.images}
@@ -844,7 +867,7 @@ const ProductDetails = () => {
                       objectFit: 'cover',
                     }}
                     wrapperProps={{
-                      style: { transitionDelay: '1s' },
+                      style: { transitionDelay: '100ms' },
                     }}
                     src={image}
                     className="image"
@@ -874,7 +897,11 @@ const ProductDetails = () => {
               // partialVisible={false}
             >
               {state.siteplan.siteplangallery.map((item, i) => (
-                <div
+                <motion.div
+                  initial={{ scale: 0.7 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
                   className="mx-auto d-flex flex-column align-items-center justify-content-center"
                   key={i}
                 >
@@ -891,11 +918,12 @@ const ProductDetails = () => {
                       color: 'black',
                       fontSize: 14,
                       textAlign: 'center',
+                      fontWeight: 600,
                     }}
                   >
                     {item.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </Carousel>
           </div>
@@ -971,41 +999,38 @@ const ProductDetails = () => {
         {state.amenitiesgallery && state.amenitiesgallery.length > 0 && (
           <>
             <div className="heading-container mt-5">
-              <span className="heading-text font">Amenities</span>
+              <span className="heading-text font" style={{ fontWeight: 500 }}>
+                Amenities
+              </span>
             </div>
-            <div className="carousel-container container mt-5 animas mb-5">
+            <div
+              className="carousel-container container mt-5 animas mb-5"
+              style={{ width: '100%' }}
+            >
               {/* //start */}
 
               <Carousel
                 responsive={responsive2}
-                autoPlay={false}
+                autoPlay={true}
                 swipeable={true}
-                draggable={false}
+                pauseOnHover={false}
+                draggable={true}
                 infinite={true}
                 afterChange={false}
                 className="amneties-carousel"
               >
                 {state.amenitiesgallery.map((item, i) => (
-                  <div className="square mx-auto" key={i}>
+                  <motion.div
+                    initial={{ scale: 0.7 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="square mx-auto"
+                    key={i}
+                  >
                     <img src={item.image} alt="Club House" />
                     <p>{item.description}</p>
-                  </div>
-                  /* <div className="square">
-            <img src="/assets/house-plants 1.png" alt="Rooftop Garden" />
-            <p>Rooftop Garden</p>
-          </div>
-          <div className="square">
-            <img src="/assets/intercom 1.png" alt="Video Door Phone" />
-            <p>Video Door Phone</p>
-          </div>
-          <div className="square">
-            <img src="/assets/swimmer 1.png" alt="Swimming Pool" />
-            <p>Swimming Pool</p>
-          </div>
-          <div className="square">
-            <img src="/assets/exercise 1.png" alt="Gym" />
-            <p>Gym</p>
-          </div> */
+                  </motion.div>
                 ))}
               </Carousel>
             </div>
@@ -1081,7 +1106,7 @@ const ProductDetails = () => {
               <div className="heading-container mt-5">
                 <span
                   className="text-center font project-heading"
-                  style={{ lineHeight: 1.5 }}
+                  style={{ lineHeight: 1.5, fontWeight: 500 }}
                 >
                   Project Approved By
                 </span>
@@ -1129,7 +1154,12 @@ const ProductDetails = () => {
             {state.statusgallery && state.statusgallery.length > 0 && (
               <div className="container">
                 <div className="heading-container mt-5">
-                  <span className="heading-text font">Project Status</span>
+                  <span
+                    className="heading-text font"
+                    style={{ fontWeight: 500 }}
+                  >
+                    Project Status
+                  </span>
                 </div>
 
                 <Carousel
@@ -1140,7 +1170,6 @@ const ProductDetails = () => {
                   swipeable={true}
                   draggable={true}
                   infinite={true}
-                  afterChange={false}
                   className="mt-5"
                 >
                   {state.statusgallery.map(item => (
@@ -1148,7 +1177,13 @@ const ProductDetails = () => {
                       className="item d-flex align-items-center justify-content-center"
                       key={item._id}
                     >
-                      <div className="img-container">
+                      <motion.div
+                        initial={{ scale: 0.7 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="img-container"
+                      >
                         <a data-fancybox="gallery1" href={item.image}>
                           <LazyLoadImage
                             alt={item.image}
@@ -1160,7 +1195,7 @@ const ProductDetails = () => {
                         <div className="date-overlay">
                           {moment(item.date).format('MMM D, YYYY')}
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   ))}
                 </Carousel>

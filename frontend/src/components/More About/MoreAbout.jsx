@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { Fade, Slide } from 'react-awesome-reveal';
 import { useNavigate } from 'react-router-dom';
-
+import './moreabout.css';
 const MoreAbout = () => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="container-fluid py-5 mt-5"
+      className="container-fluid py-5"
       style={{ backgroundColor: '#F0ECEC' }}
     >
       <div className="heading-container">
-        <span className="heading-text font">More About Elite</span>
+        <span className="heading-text font" style={{ fontWeight: 500 }}>
+          More About Elite
+        </span>
       </div>
       <div className="container my-card-container mt-5">
         <div className="row">

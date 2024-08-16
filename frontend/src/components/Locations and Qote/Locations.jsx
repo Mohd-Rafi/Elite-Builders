@@ -1,10 +1,9 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import './locations.css';
-import { json, useNavigate } from 'react-router-dom';
-import ScrollReveal from 'scrollreveal';
-import { Fade, Slide, Zoom } from 'react-awesome-reveal';
+import { useNavigate } from 'react-router-dom';
+import { Slide } from 'react-awesome-reveal';
 import customAxios from '../../../utils/CustomAxios.js';
+import { motion } from 'framer-motion';
+import './locations.css';
 
 const Locations = () => {
   const [state, setState] = useState([]);
@@ -38,7 +37,24 @@ const Locations = () => {
     navigate(`/districtName/${district}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  const variants1 = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
 
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const variants2 = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+    },
+  };
   useEffect(() => {
     const catchLoc = sessionStorage.getItem('location');
     if (catchLoc) {
@@ -60,24 +76,36 @@ const Locations = () => {
             experience.Each land is carefully vetted by our team of
             professionals so that you can invest worry free.
           </p>
-          <Fade>
-            <div className="item-locations-map">
-              <a className="btn btn-custom mt-3" href="/residential">
-                ALL LOCATIONS
-              </a>
+          <motion.div
+            variants={variants1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="item-locations-map"
+          >
+            <motion.a
+              variants={variants2}
+              className="btn btn-custom mt-3"
+              onClick={() => {
+                navigate('/residential');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              ALL LOCATIONS
+            </motion.a>
 
-              {state &&
-                state.map(item => (
-                  <a
-                    className="btn btn-custom mt-3"
-                    onClick={() => onClick(item.district)}
-                    key={item._id}
-                  >
-                    {item.district}
-                  </a>
-                ))}
-            </div>
-          </Fade>
+            {state &&
+              state.map(item => (
+                <motion.a
+                  variants={variants2}
+                  className="btn btn-custom mt-3"
+                  onClick={() => onClick(item.district)}
+                  key={item._id}
+                >
+                  {item.district}
+                </motion.a>
+              ))}
+          </motion.div>
         </div>
       </div>
 
@@ -86,7 +114,13 @@ const Locations = () => {
           "We're helping hundreds of customers <br /> find their dream homes"
         </h2>
         <Slide>
-          <a className="btn btn-custom mt-5" href="/homeloan">
+          <a
+            className="btn btn-custom mt-5"
+            onClick={() => {
+              navigate('/homeloan');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             HOME BUYERS GUIDE
           </a>
         </Slide>

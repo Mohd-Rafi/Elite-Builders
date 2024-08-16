@@ -89,7 +89,9 @@ const HomLoanFaq = () => {
           <h2 className="text-center head">Home Loan</h2>
         </div>
         <div className="sub-heading-section mt-4 text-center">
-          <h5>Choose Your Home Loan From A Wide Array Of Options</h5>
+          <h5 className="font">
+            Choose Your Home Loan From A Wide Array Of Options
+          </h5>
         </div>
       </div>
       <div className="container mt-5">
@@ -225,15 +227,13 @@ const HomLoanFaq = () => {
                 </button>
               </h2>
               <div
-                id={`flush-collapse${index}`}
-                className={`accordion-collapse collapse ${
+                id={`flush-collapse ${index}`}
+                className={`accordion-collapse ${
                   openItem === index ? 'show' : ''
                 }`}
                 data-bs-parent="#accordionFlushExample"
               >
-                <Fade direction="down" triggerOnce>
-                  <div className="accordion-body">{item.answer}</div>
-                </Fade>
+                <div className="accordion-body">{item.answer}</div>
               </div>
             </div>
           ))}

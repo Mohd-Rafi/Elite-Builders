@@ -46,13 +46,13 @@ const HomeGuide = () => {
           <h1 className="text-center head">HOME ALLY</h1>
         </div>
         <div className="sub-heading-section mt-4 text-center">
-          <h5>MILESTONES IN YOUR HOME SEARCH</h5>
+          <h5 className="font">MILESTONES IN YOUR HOME SEARCH</h5>
         </div>
       </div>
       <Fade direction="right" triggerOnce>
         <div className="container-fluid mt-5">
           <div className="row">
-            <div className="col-md-3 text-center animas">
+            <div className="col-md-3 animas">
               <div className="circle-container">
                 <div className="circle">
                   <img src="/assets/real.gif" alt="Real Estate Terms" />

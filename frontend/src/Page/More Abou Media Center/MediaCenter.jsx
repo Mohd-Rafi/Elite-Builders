@@ -306,7 +306,7 @@ const MediaCenter = () => {
       >
         <div className="text-center font">
           <h1>It's True We Use Trees For Constructions</h1>
-          <h2 className="mt-3" style={{ color: '#77c15f', marginBottom: 0 }}>
+          <h2 className="mt-3" style={{ marginBottom: 0 }}>
             By Keeping Them Alive!
           </h2>
         </div>

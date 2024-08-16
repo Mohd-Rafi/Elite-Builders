@@ -22,7 +22,7 @@ const CarouselComponent = ({ state, loading }) => {
   };
 
   return (
-    <>
+    <div className="main-slider">
       {loading ? (
         <div className="cc-loader-contentaa">
           <ContentLoader
@@ -41,9 +41,9 @@ const CarouselComponent = ({ state, loading }) => {
                 alt={item && item.images && item.images[0]}
                 effect="blur"
                 className="carousel-image main-banner-image"
-                wrapperProps={{
-                  style: { transitionDelay: '300ms' },
-                }}
+                // wrapperProps={{
+                //   style: { transitionDelay: '300ms' },
+                // }}
                 src={item && item.images && item.images[0]}
               />
 
@@ -87,7 +87,7 @@ const CarouselComponent = ({ state, loading }) => {
           {/* Add more banners here in the same format */}
         </Slider>
       )}
-    </>
+    </div>
   );
 };
 

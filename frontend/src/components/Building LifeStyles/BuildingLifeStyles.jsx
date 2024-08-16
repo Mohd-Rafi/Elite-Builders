@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import './buildinglifestyles.css';
-import ScrollReveal from 'scrollreveal';
 import { Slide, Zoom } from 'react-awesome-reveal';
+import { useNavigate } from 'react-router-dom';
 
 const BuildingLifeStyles = () => {
+  const navigate = useNavigate();
   return (
     <div className="custom-section container-fluid" style={{ marginTop: -8 }}>
       <div className="container mt-5 mb-5">
@@ -36,11 +37,17 @@ const BuildingLifeStyles = () => {
               truest sense. For us, it goes beyond merely constructing
               structures. We craft experiences that elevate everyday living.
               This driving philosophy is ingrained in our DNA, guiding us to
-              create world-className, quality homes and communities that
-              resonate with discerning individuals.
+              create world-class quality homes and communities that resonate
+              with discerning individuals.
             </p>
             <Slide direction="up">
-              <a className="btn btn-custom" href="/philosophy">
+              <a
+                className="btn btn-custom"
+                onClick={() => {
+                  navigate('/philosophy');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
                 READ MORE
               </a>
             </Slide>

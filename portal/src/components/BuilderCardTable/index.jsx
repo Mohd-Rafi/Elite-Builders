@@ -71,16 +71,23 @@ const BuilderCardTable = ({ refreshTrigger }) => {
 
   const updateBuilderCard = async id => {
     try {
-      const response = await axios.post(
-        `/buildercard/update/${id}`,
-        UpdateBuilderCard
-      );
+      const response = await axios.patch(`/buildercard/update/${id}`, {
+        ...UpdateBuilderCard,
+        amenitiesgallery:
+          UpdateBuilderCard.amenitiesgallery.length > 1
+            ? UpdateBuilderCard.amenitiesgallery
+            : builderCard.amenitiesgallery,
+        statusgallery:
+          UpdateBuilderCard.statusgallery.length > 1
+            ? UpdateBuilderCard.statusgallery
+            : builderCard.statusgallery,
+      });
       if (response.status === 201) {
         toast.success('BuilderCard updated', {
           autoClose: 1500,
           onClose: () => {
             trigger();
-            getNewsAndEvents();
+            // getNewsAndEvents();
             window.location.reload();
           },
         });

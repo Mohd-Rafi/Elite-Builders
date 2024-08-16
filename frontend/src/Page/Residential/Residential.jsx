@@ -321,7 +321,12 @@ const Residential = () => {
         <div className="row">
           <div className="col-md-3 d-none d-md-block sidebar">
             <ul className="list-group">
-              <a href="/residential">
+              <a
+                onClick={() => {
+                  navigate('/residential');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
                 <li
                   className="list-group-item actives"
                   style={{ textTransform: 'uppercase' }}
@@ -329,14 +334,7 @@ const Residential = () => {
                   Residential
                 </li>
               </a>
-              {/* <a href="/thrissur">
-                <li
-                  className="list-group-item "
-                  style={{ textTransform: 'uppercase' }}
-                >
-                  Thrissur
-                </li>
-              </a> */}
+
               {district.map(item => (
                 <a key={item._id}>
                   <li
@@ -365,7 +363,7 @@ const Residential = () => {
               <h3 className="top-heading font">Residential</h3>
             </div>
             <div className="mt-5">
-              <p className="description mt-4">
+              <p className="description description-district mt-4">
                 Elite Developers, one of Kerala's leading Real Estate
                 Developers, is committed towards premium quality, standards, and
                 innovation. Four decades of rich experience in residential,
@@ -435,7 +433,9 @@ const Residential = () => {
                         <div className="flex-container">
                           <div>
                             <h6 className="small_h">K-RERA</h6>
-                            <p className="card-texts">{item.kreranumber}</p>
+                            <p className="card-texts line-clamp-1">
+                              {item.kreranumber}
+                            </p>
                           </div>
                           <div className="contact-buttons">
                             <a

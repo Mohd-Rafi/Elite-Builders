@@ -321,7 +321,12 @@ const Header = () => {
           <div className="hamburger-border"></div>
         </div>
         <div className="logo">
-          <a href="/">
+          <a
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            }}
+          >
             {fix ? (
               <img
                 src="/assets/Elite Logo 1.png"
@@ -348,7 +353,13 @@ const Header = () => {
           </div>
           <ul className="menu-list mt-5">
             <li>
-              <a href="/" className="menu-link lead">
+              <a
+                onClick={() => {
+                  navigate('/');
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }}
+                className="menu-link lead"
+              >
                 HOME
               </a>
             </li>
@@ -367,12 +378,24 @@ const Header = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/philosophy" className="menu-link lead">
+                  <a
+                    onClick={() => {
+                      navigate('/philosophy');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="menu-link lead"
+                  >
                     WHO WE ARE
                   </a>
                 </li>
                 <li>
-                  <a href="/media-center" className="menu-link lead">
+                  <a
+                    onClick={() => {
+                      navigate('/media-center');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="menu-link lead"
+                  >
                     MEDIA CENTER
                   </a>
                 </li>
@@ -393,7 +416,13 @@ const Header = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/residential" className="menu-link lead">
+                  <a
+                    onClick={() => {
+                      navigate('/residential');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="menu-link lead"
+                  >
                     RESIDENTIAL
                   </a>
                 </li>
@@ -422,40 +451,76 @@ const Header = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/homeloan" className="menu-link lead">
+                  <a
+                    onClick={() => {
+                      navigate('/homeloan');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="menu-link lead"
+                  >
                     HOME LOAN FAQ
                   </a>
                 </li>
                 <li>
-                  <a href="/home-buying-guide" className="menu-link lead">
+                  <a
+                    onClick={() => {
+                      navigate('/home-buying-guide');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="menu-link lead"
+                  >
                     HOME BUYING GUIDE
                   </a>
                 </li>
                 <li>
-                  <a href="/elite-blog" className="menu-link lead">
+                  <a
+                    onClick={() => {
+                      navigate('/elite-blog');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="menu-link lead"
+                  >
                     BLOGS
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="/elite-privilage" className="menu-link lead">
+              <a
+                onClick={() => {
+                  navigate('/elite-privilage');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="menu-link lead"
+              >
                 SERVICES
               </a>
             </li>
             <li>
-              <a href="/careers" className="menu-link lead">
+              <a
+                onClick={() => {
+                  navigate('/careers');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="menu-link lead"
+              >
                 CAREERS
               </a>
             </li>
             <li>
-              <a href="/contact" className="menu-link lead">
+              <a
+                onClick={() => {
+                  navigate('/contact');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="menu-link lead"
+              >
                 Contact Us
               </a>
             </li>
           </ul>
           <div className="connect-with-us mt-5">
-            <h4>Connect with us</h4>
+            <h4 style={{ cursor: 'pointer' }}>Connect with us</h4>
             <div className="social-icons">
               <ul>
                 <li>

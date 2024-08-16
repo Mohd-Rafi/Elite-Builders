@@ -72,7 +72,7 @@ const Footer = () => {
             <h5 className="with-line" style={{ color: '#77c15f' }}>
               ADDRESS
             </h5>
-            <p className="address" style={{ lineHeight: 3 }}>
+            <p className="address" style={{ lineHeight: 2.8 }}>
               Elite Gardenia Hills,
               <br />
               Near Reliance Petrol Pump, <br />

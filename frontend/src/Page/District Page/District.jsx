@@ -192,7 +192,7 @@ const District = () => {
       fetchUniqueDistrictApi();
     }
   }, [district]);
-  console.log(state);
+  // console.log(state);
   return (
     <div>
       <Header />
@@ -205,16 +205,6 @@ const District = () => {
             >
               {/* <!-- Centered modal --> */}
               <div className="modal-content">
-                {/* <div className="modal-header">
-                  <h5 className="modal-title" id="modalLabel">
-                    Download Brochure
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={handleClose}
-                  ></button>
-                </div> */}
                 <div className="modal-body">
                   {/* <!-- Form to collect user information --> */}
                   <form id="brochureForm">
@@ -311,7 +301,12 @@ const District = () => {
         <div className="row">
           <div className="col-md-3 d-none d-md-block sidebar">
             <ul className="list-group">
-              <a href="/residential">
+              <a
+                onClick={() => {
+                  navigate('/residential');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
                 <li
                   className="list-group-item"
                   style={{ textTransform: 'uppercase' }}
@@ -348,15 +343,8 @@ const District = () => {
             <div className="heading-section mb-4">
               <h3 className="top-heading font text-uppercase ">{district}</h3>
             </div>
-            <div
-              className="mt-5"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <p className="description mt-4">
+            <div className="mt-5">
+              <p className="description description-district mt-4">
                 Elite Developers, one of Kerala's leading Real Estate
                 Developers, is committed towards premium quality, standards, and
                 innovation. Four decades of rich experience in residential,

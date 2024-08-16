@@ -59,7 +59,7 @@ router.get('/district/get', async (req, res) => {
   }
 });
 
-router.post('/update/:id', async (req, res) => {
+router.patch('/update/:id', async (req, res) => {
   try {
     const body = { ...req.body };
     const { id } = req.params;

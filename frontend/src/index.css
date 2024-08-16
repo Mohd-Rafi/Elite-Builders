@@ -221,6 +221,8 @@ opacity: 1;
   margin-bottom: 35px;
   transition: margin-left 0.5s ease;
   text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
 }
 
 .menu-link i {
@@ -1869,7 +1871,7 @@ a {
   right: 20px;
   bottom: 30px;
   /* Adjust this value as needed */
-  z-index: 1000;
+  z-index: 1003;
   /* Set a high z-index value */
   animation: bounce 2s infinite;
 }

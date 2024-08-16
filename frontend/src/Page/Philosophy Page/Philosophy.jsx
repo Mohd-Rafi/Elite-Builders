@@ -160,9 +160,15 @@ const Philosophy = () => {
         <div className="row">
           <div className="col-md-6 pt-3">
             <p className="description">
-              Our group legacy in business for more than half a century, bears
-              testament to our reliability and trustworthiness as a business
-              group. We have transformed lifestyles, established iconic
+              Elite Developers is dedicated to "building lifestyles" in the
+              truest sense. For us, it goes beyond merely constructing
+              structures. We craft experiences that elevate everyday living.
+              This driving philosophy is ingrained in our DNA, guiding us to
+              create world-class quality homes and communities that resonate
+              with discerning individuals.
+              <br /> Our group legacy in business for more than half a century,
+              bears testament to our reliability and trustworthiness as a
+              business group. We have transformed lifestyles, established iconic
               landmarks, and expanded our footprint into multiple cities, with
               many more on the horizon. <br />
               <br />
@@ -236,7 +242,7 @@ const Philosophy = () => {
         </div>
         <div className="logo-sections mt-5" style={{ textAlign: 'center' }}>
           <img
-            src="/assets/elite_developer_2.png"
+            src="/assets/ED Logo Transparent.webp"
             alt="elite_logo"
             className="img-fluid-philosophy"
           />
