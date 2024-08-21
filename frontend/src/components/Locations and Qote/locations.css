@@ -1,3 +1,10 @@
+.locations-mian-container {
+  position: relative;
+}
+.quote-cont {
+  position: absolute;
+  bottom: 0;
+}
 .item-locations-map {
   text-transform: uppercase;
 }

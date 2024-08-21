@@ -13,6 +13,7 @@ import { Modal } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Instagram } from 'react-content-loader';
+
 const BuildingCard = () => {
   const settings = {
     infinite: true,

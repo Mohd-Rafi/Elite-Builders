@@ -29,6 +29,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import ReactGA from 'react-ga4';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
+import { Slider as AntSlider, Button as AntButton } from 'antd';
+import { ConfigProvider } from 'antd';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -350,11 +353,45 @@ const ProductDetails = () => {
     },
   };
 
+  //sample API for testing
+
+  // const [sample, setSample] = useState([]);
+  // const getSamppleApi = async () => {
+  //   const response = await axios.get('https://api.sampleapis.com/coffee/hot');
+  //   setSample(response.data);
+  // };
+
   useEffect(() => {
     fetchDataApiCall();
+    // getSamppleApi();
     // fetchAllDataApiCall();
     refreshCaptcha();
   }, [id]);
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 6;
+
+  useEffect(() => {
+    // Scroll to the top of the page after reload
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleSliderChange = value => {
+    setCurrentPage(value);
+  };
+
+  const handleNext = () => {
+    setCurrentPage(prev => Math.min(prev + 1, maxPages - 1));
+  };
+
+  const handlePrev = () => {
+    setCurrentPage(prev => Math.max(prev - 1, 0));
+  };
+
+  const maxPages = Math.ceil(state.gallery.images.length / itemsPerPage);
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const selectedImages = state.gallery.images.slice(startIndex, endIndex);
 
   useEffect(() => {
     if (state.name) {
@@ -383,21 +420,21 @@ const ProductDetails = () => {
   }, [state.images, state.statusgallery, state.siteplan.images]);
 
   //set max limit of 10 items for image gallery for mobile screens
-  const [isResponsive, setIsResponsive] = useState(false);
+  // const [isResponsive, setIsResponsive] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsResponsive(window.innerWidth <= 768); // Adjust the threshold as needed
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsResponsive(window.innerWidth <= 768); // Adjust the threshold as needed
+  //   };
 
-    handleResize(); // Check initial screen width
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  //   handleResize(); // Check initial screen width
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
-  const imagesToShow = isResponsive
-    ? state.gallery.images.slice(0, 10)
-    : state.gallery.images;
+  // const imagesToShow = isResponsive
+  //   ? state.gallery.images.slice(0, 10)
+  //   : state.gallery.images;
   // console.log(state);
   return (
     <div>
@@ -849,14 +886,15 @@ const ProductDetails = () => {
       </div>
 
       {/* Gallery Component */}
-      <div className="galleri">
-        {state.gallery &&
-          imagesToShow.map((image, index) => {
+      <div className="gallery-container">
+        <div className="galleri">
+          {/* selectedImages */}
+          {selectedImages.map((image, index) => {
             const isThirdItem = index % 3 === 0;
-            const itemHeight = isThirdItem ? '450px' : '250px';
+            const itemHeight = isThirdItem ? '500px' : '245px';
 
             return (
-              <div key={index} className={`pics`}>
+              <div key={index} className="pics">
                 <a data-fancybox="gallery" href={image}>
                   <LazyLoadImage
                     alt={image}
@@ -876,6 +914,62 @@ const ProductDetails = () => {
               </div>
             );
           })}
+        </div>
+        <ConfigProvider
+          theme={{
+            components: {
+              Slider: {
+                handleColor: 'green', // Set the handle color to green
+                handleActiveColor: 'green',
+                trackHoverBg: 'green',
+                trackBg: 'green',
+                colorPrimaryBorderHover: 'green',
+              },
+            },
+          }}
+        >
+          {maxPages != 1 && (
+            <div
+              className="gallery-button-component"
+              style={{ position: 'relative' }}
+            >
+              <div
+                className={`gallery-next-prev-btn`}
+                onClick={handlePrev}
+                // disabled={currentPage === 0}
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </div>
+              <div
+                className=""
+                style={{
+                  position: 'absolute',
+                  bottom: 19,
+                  userSelect: 'none',
+                }}
+              >
+                <p style={{ color: 'black' }}>
+                  Page {currentPage + 1} / {maxPages}
+                </p>
+              </div>
+
+              <AntSlider
+                min={0}
+                max={maxPages - 1}
+                value={currentPage}
+                onChange={handleSliderChange}
+                className="slider"
+              />
+              <div
+                className={`gallery-next-prev-btn`}
+                onClick={handleNext}
+                // disabled={currentPage === maxPages - 1}
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+          )}
+        </ConfigProvider>
       </div>
 
       {/* SitePlan Component */}

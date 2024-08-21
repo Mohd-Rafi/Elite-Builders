@@ -426,7 +426,9 @@ a {
   background-color: #77c15f;
   color: #333;
 }
-
+.description-planet {
+  font-size: 20px !important;
+}
 @media (max-width: 600px) {
   .social-media {
     flex-direction: column;
@@ -434,6 +436,9 @@ a {
 
   .social-media span {
     margin-bottom: 10px;
+  }
+  .description-planet {
+    font-size: 18px !important;
   }
 }
 .d-flex {

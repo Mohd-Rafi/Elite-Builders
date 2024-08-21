@@ -253,9 +253,9 @@ const ContactPage = () => {
                         className="tab-pane fade show active"
                         style={{ position: 'relative' }}
                       >
-                        <div className="row">
+                        <div className="row" style={{ color: 'black' }}>
                           <div className="col-md-4">
-                            <h5 style={{ color: '#606C38' }}>LOCATION</h5>
+                            <h5>LOCATION</h5>
                             <p>
                               Trivandrum - Branch Office 375/1, Elite Samruddhi,
                               Vellaramkunnu Rd, Menamkulam, Kazhakuttom P.O,
@@ -263,7 +263,7 @@ const ContactPage = () => {
                             </p>
                           </div>
                           <div className="col-md-4">
-                            <h5 style={{ color: '#606C38' }}>CONTACT INFO</h5>
+                            <h5>CONTACT INFO</h5>
                             <p>
                               +91 99468 11111
                               <br />
@@ -271,7 +271,7 @@ const ContactPage = () => {
                             </p>
                           </div>
                           <div className="col-md-4">
-                            <h5 style={{ color: '#606C38' }}>MAIL</h5>
+                            <h5>MAIL</h5>
                             <p>
                               sales@elitehomesindia.co.in
                               <br />

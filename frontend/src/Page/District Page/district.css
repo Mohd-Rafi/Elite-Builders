@@ -12,8 +12,14 @@
 .description-district {
   min-width: 95%;
 }
+.district-page-card-width {
+  width: 45%;
+}
 @media screen and (max-width: 768px) {
   .description-district {
     min-width: 100%;
+  }
+  .district-page-card-width {
+    width: 100% !important;
   }
 }

@@ -287,7 +287,7 @@ const Header = () => {
       </Modal>
       <div className="fixed-icons-cont">
         <a
-          href="https://api.whatsapp.com/send?phone=919946177643"
+          href="https://api.whatsapp.com/send?phone=919946811111"
           target="_blank"
           className="icon-links whatsapp-icon"
         >
@@ -299,7 +299,7 @@ const Header = () => {
         </a>
       </div>
       <div className="bottom-fixed-icons">
-        <a href="tel:9946177643" className="call-link">
+        <a href="tel:9946811111" className="call-link">
           <i className="fa fa-phone" aria-hidden="true"></i> Call
         </a>
         <div className="break">|</div>
@@ -308,7 +308,7 @@ const Header = () => {
         </a>
         <div className="break">|</div>
         <a
-          href="https://api.whatsapp.com/send?phone=919946177643"
+          href="https://api.whatsapp.com/send?phone=919946811111"
           target="_blank"
           className="whatsapp-link"
         >
@@ -546,7 +546,7 @@ const Header = () => {
                 </li>
                 <li>
                   <a
-                    href="https://api.whatsapp.com/send?phone=919946177643"
+                    href="https://api.whatsapp.com/send?phone=919946811111"
                     target="_blank"
                   >
                     <i className="fab fa-whatsapp"></i>

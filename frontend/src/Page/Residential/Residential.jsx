@@ -379,7 +379,10 @@ const Residential = () => {
               </div>
               <div className="row mt-5">
                 {state.map((item, index) => (
-                  <div className="col-md-6 col-sm-12 mb-4 animas" key={index}>
+                  <div
+                    className="district-page-card-width col-md-6 col-sm-12 mb-4 animas"
+                    key={index}
+                  >
                     <div className="card mb-4" style={{ borderRadius: '15px' }}>
                       <div
                         className="status-label"

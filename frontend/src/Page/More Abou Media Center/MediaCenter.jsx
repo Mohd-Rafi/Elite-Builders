@@ -249,6 +249,7 @@ const MediaCenter = () => {
         style={{
           flexDirection: 'column',
           alignItems: 'center',
+          backgroundColor: 'rgb(119, 193, 95)',
         }}
       >
         <div className="text-center font">
@@ -281,9 +282,8 @@ const MediaCenter = () => {
                 data-width="320"
                 data-height="480"
                 href="https://twitter.com/eliterealtydev?ref_src=twsrc%5Etfw"
-              >
-                Tweets by eliterealtydev
-              </a>
+                style={{ color: 'white' }}
+              />
               <script
                 async
                 src="https://platform.twitter.com/widgets.js"
@@ -315,7 +315,7 @@ const MediaCenter = () => {
             className="planet-paragraph mt-5"
             style={{ textAlign: 'center' }}
           >
-            <p className="descriptions">
+            <p className="descriptions description-planet">
               Elite Developers launched its “Plant for the Planet” as part of it
               corporate social responsibility initiative to bring awareness on
               sustainable development through tree plantation. As part of this

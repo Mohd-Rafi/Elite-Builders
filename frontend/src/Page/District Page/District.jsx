@@ -355,7 +355,7 @@ const District = () => {
               <div className="row mt-5 item-maps">
                 {state.map(item => (
                   <div
-                    className="col-md-6 col-sm-12 mb-4 animas"
+                    className="district-page-card-width col-md-6 col-sm-12 mb-4 animas"
                     key={item._id}
                   >
                     <Helmet>
